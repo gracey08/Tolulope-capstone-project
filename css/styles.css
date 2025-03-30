@@ -1,0 +1,65 @@
+/* Custom styles for Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Colors */
+:root {
+  --custom-light-blue: #e6f0fa;
+  --custom-orange: #f5a623;
+  --custom-green: #2e7d32;
+}
+
+/* Utility classes for custom colors */
+.bg-custom-light-blue {
+  background-color: var(--custom-light-blue);
+}
+
+.bg-custom-orange {
+  background-color: var(--custom-orange);
+}
+
+.bg-custom-green {
+  background-color: var(--custom-green);
+}
+
+.text-custom-orange {
+  color: var(--custom-orange);
+}
+
+.border-custom-orange {
+  border-color: var(--custom-orange);
+}
+
+/* Custom responsive adjustments */
+@media (max-width: 640px) {
+  /* Adjust hero section for mobile */
+  .hero-title {
+    font-size: 1.5rem; /* Smaller font size on mobile */
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Adjust recipe cards */
+  .recipe-card img {
+    height: 120px; /* Smaller image height on mobile */
+  }
+
+  /* Adjust footer layout */
+  .footer-grid {
+    grid-template-columns: 1fr; /* Stack footer sections vertically */
+  }
+
+  /* Adjust CTA section */
+  .cta-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-section img {
+    max-width: 200px; /* Smaller image on mobile */
+  }
+}

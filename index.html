@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SweetRecipe - Landing Page</title>
+  <!-- Tailwind CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <div class="flex items-center">
+        <img src="images/logo.png" alt="SweetRecipe Logo" class="h-8 mr-2"> <!-- Placeholder for logo -->
+        <span class="text-xl font-bold text-gray-800">SweetRecipe</span>
+      </div>
+      <div class="flex space-x-4 sm:space-x-6">
+        <a href="index.html" class="text-gray-600 hover:text-gray-800 text-sm sm:text-base">Recipes</a>
+        <a href="about.html" class="text-gray-600 hover:text-gray-800 text-sm sm:text-base">About Us</a>
+        <a href="community.html" class="text-gray-600 hover:text-gray-800 text-sm sm:text-base">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="relative bg-white py-8 sm:py-12">
+    <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
+      <!-- Left Side: Text and Buttons -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="text-2xl sm:text-4xl font-bold text-gray-800 mb-4 hero-title">
+          Cooking Made Fun and Easy: Unleash Your Inner Chef
+        </h1>
+        <div class="flex justify-center md:justify-start space-x-4 hero-buttons">
+          <a href="#recipes" class="bg-custom-orange text-white font-semibold py-2 px-4 sm:px-6 rounded-lg hover:bg-orange-600 text-sm sm:text-base">
+            Explore Recipes
+          </a>
+          <a href="#recipes" class="border border-gray-300 text-gray-600 font-semibold py-2 px-4 sm:px-6 rounded-lg hover:bg-gray-100 text-sm sm:text-base">
+            See All
+          </a>
+        </div>
+      </div>
+      <!-- Right Side: Image -->
+      <div class="md:w-1/2 mt-6 md:mt-0">
+        <img src="images/hero.jpg" alt="Hero" class="w-full max-w-xs sm:max-w-md mx-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- Popular Recipes Section -->
+  <div class="container mx-auto py-8 sm:py-12 px-4" id="recipes">
+    <h2 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 text-center">
+      Discover, Create, Share
+    </h2>
+    <p class="text-center text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+      Check out the most popular recipes of the week
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="recipe-list">
+      <!-- Recipes will be populated by JavaScript -->
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-custom-green text-white py-8 sm:py-12 text-center">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-4 cta-section">
+      <div class="md:w-1/2">
+        <h2 class="text-xl sm:text-2xl font-bold mb-4">
+          Embrace the joy of cooking with get it on your iPhone or Android Your kitchen adventure begins now!
+        </h2>
+        <div class="flex justify-center space-x-4">
+          <a href="#" class="bg-white text-black font-semibold py-2 px-4 rounded-lg flex items-center text-sm sm:text-base">
+            <img src="images/app-store.png" alt="App Store" class="h-4 sm:h-5 mr-2"> App Store
+          </a>
+          <a href="#" class="bg-white text-black font-semibold py-2 px-4 rounded-lg flex items-center text-sm sm:text-base">
+            <img src="images/google-play.png" alt="Google Play" class="h-4 sm:h-5 mr-2"> Google Play
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 mt-6 md:mt-0">
+        <img src="images/phones.png" alt="Phones" class="mx-auto">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 sm:py-8">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left px-4 footer-grid">
+      <!-- Recipes Section -->
+      <div>
+        <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-4">Recipes</h3>
+        <ul class="space-y-2 text-gray-600 text-sm sm:text-base">
+          <li>Breakfast</li>
+          <li>Lunch</li>
+          <li>Dinner</li>
+          <li>Snacks</li>
+          <li>Desserts</li>
+        </ul>
+      </div>
+      <!-- Social Section -->
+      <div>
+        <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-4">Social</h3>
+        <ul class="space-y-2 text-gray-600 text-sm sm:text-base">
+          <li>Instagram</li>
+          <li>Twitter</li>
+          <li>YouTube</li>
+          <li>Facebook</li>
+        </ul>
+      </div>
+      <!-- Newsletter Signup -->
+      <div>
+        <h3 class="text-base sm:text-lg font-semibold text-gray-800 mb-4">Sign Up for Our Newsletter</h3>
+        <form class="flex flex-col space-y-2">
+          <input
+            type="email"
+            placeholder="Your Email Address"
+            class="border border-gray-300 rounded-lg p-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-custom-orange"
+          >
+          <button
+            type="submit"
+            class="bg-custom-orange text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-600 text-sm sm:text-base"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/scripts.js"></script>
+</body>
+</html>
