@@ -20,14 +20,7 @@ const Footer = () => {
             <li><a href="#" className="text-gray-600 hover:text-primaryGreen">Dinner</a></li>
           </ul>
         </div>
-        <div>
-          <h3 className="text-lg font-semibold text-primaryGreen mb-4">Social</h3>
-          <ul className="space-y-2">
-            <li><a href="#" className="text-gray-600 hover:text-primaryGreen">Instagram</a></li>
-            <li><a href="#" className="text-gray-600 hover:text-primaryGreen">YouTube</a></li>
-            <li><a href="#" className="text-gray-600 hover:text-primaryGreen">Facebook</a></li>
-          </ul>
-        </div>
+        
         <div>
           <h3 className="text-lg font-semibold text-primaryGreen mb-4">Sign Up for Our Newsletter</h3>
           <form>

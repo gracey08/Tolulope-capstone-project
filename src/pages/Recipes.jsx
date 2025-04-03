@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import RecipeCard from '../components/RecipeCard';
-import { searchRecipes } from '../services/api';
+import { searchRecipes, getRecipeDetails } from '../services/api';
 
 const Recipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -8,6 +8,8 @@ const Recipes = () => {
   const [offset, setOffset] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [recipeDetails, setRecipeDetails] = useState(null);
 
   const fetchRecipes = async (newSearch = false) => {
     setLoading(true);
@@ -29,6 +31,17 @@ const Recipes = () => {
 
   const loadMore = () => {
     fetchRecipes();
+  };
+
+  const handleViewRecipe = async (id) => {
+    setSelectedRecipe(id);
+    const details = await getRecipeDetails(id);
+    setRecipeDetails(details);
+  };
+
+  const closeModal = () => {
+    setSelectedRecipe(null);
+    setRecipeDetails(null);
   };
 
   return (
@@ -63,7 +76,9 @@ const Recipes = () => {
                   image={recipe.image}
                   time={recipe.readyInMinutes}
                   servings={recipe.servings}
-                  rating={recipe.spoonacularScore / 20} // Convert score to 5-star rating
+                  rating={recipe.spoonacularScore / 20}
+                  id={recipe.id}
+                  onView={handleViewRecipe}
                 />
               ))}
             </div>
@@ -79,6 +94,40 @@ const Recipes = () => {
               </div>
             )}
           </>
+        )}
+
+        {/* Modal for Recipe Steps */}
+        {selectedRecipe && recipeDetails && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{recipeDetails.title}</h2>
+              <img
+                src={recipeDetails.image}
+                alt={recipeDetails.title}
+                className="w-full h-64 object-cover rounded-md mb-4"
+              />
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Ingredients:</h3>
+              <ul className="list-disc list-inside mb-4">
+                {recipeDetails.extendedIngredients.map((ingredient) => (
+                  <li key={ingredient.id}>{ingredient.original}</li>
+                ))}
+              </ul>
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">Steps:</h3>
+              <ol className="list-decimal list-inside">
+                {recipeDetails.analyzedInstructions[0]?.steps.map((step) => (
+                  <li key={step.number} className="mb-2">
+                    {step.step}
+                  </li>
+                )) || <p>No steps available</p>}
+              </ol>
+              <button
+                onClick={closeModal}
+                className="mt-6 bg-primaryOrange text-white px-4 py-2 rounded-lg hover:bg-orange-600"
+              >
+                Close
+              </button>
+            </div>
+          </div>
         )}
       </div>
     </div>

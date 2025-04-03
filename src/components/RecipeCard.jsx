@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RecipeCard = ({ title, image, time, servings, rating }) => {
+const RecipeCard = ({ title, image, time, servings, rating, id, onView }) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <img src={image} alt={title} className="w-full h-48 object-cover" loading="lazy" />
@@ -14,7 +14,12 @@ const RecipeCard = ({ title, image, time, servings, rating }) => {
           <span className="text-yellow-500">★★★★★</span>
           <span className="ml-2 text-gray-600">({rating})</span>
         </div>
-        <button className="mt-4 text-primaryGreen hover:underline">View Recipe</button>
+        <button
+          onClick={() => onView(id)}
+          className="mt-4 text-primaryGreen hover:underline"
+        >
+          View Recipe
+        </button>
       </div>
     </div>
   );

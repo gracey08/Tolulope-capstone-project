@@ -20,3 +20,19 @@ export const searchRecipes = async (query, offset = 0, number = 6) => {
     return { results: [], totalResults: 0 };
   }
 };
+
+// Add a function to fetch detailed recipe by ID (for steps)
+export const getRecipeDetails = async (id) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${id}/information`, {
+      params: {
+        apiKey: API_KEY,
+        includeNutrition: false,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching recipe details:', error);
+    return null;
+  }
+};
